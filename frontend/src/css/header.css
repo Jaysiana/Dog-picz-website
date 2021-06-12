@@ -6,6 +6,7 @@
 }
 
 
+
 .site-header {
   padding: 50px 0;
   *zoom: 1; }
@@ -19,22 +20,24 @@
 #branding {
   float: left; }
   #branding .logo, #branding .logo-copy {
-    display: inline-block; }
+    display:inline-block; }
   #branding .logo {
     margin-right: 20px; }
   #branding .site-title {
     margin: 0;
     text-transform: uppercase;
-    color: white;
+    color: rgb(92, 63, 45);
     font-family: "fontAwesome";
-    font-size: 22px; }
+    font-size: 22px;
+}
     #branding .site-title a {
       color: white; }
+      
   #branding .site-description {
     font-family: "fontAwesome";
     font-size: 17px;
   
-    color: #9198af; }
+    color: #29231b; }
 
 
 .main-navigation {
@@ -95,6 +98,43 @@
         margin: 0 auto;
         display: block; }
   
+
+
+
+        .container {
+          margin-right: auto;
+          margin-left: auto;
+          padding-left: 15px;
+          padding-right: 15px;
+          *zoom: 1; }
+          .container:after {
+            content: " ";
+            clear: both;
+            display: block;
+            overflow: hidden;
+            height: 0; }
+          @media (min-width: 768px) {
+            .container {
+              width: 750px; } }
+          @media (min-width: 992px) {
+            .container {
+              width: 970px; } }
+          @media (min-width: 1200px) {
+            .container {
+              width: 1170px; } }
+        
+        .container-fluid {
+          margin-right: auto;
+          margin-left: auto;
+          padding-left: 15px;
+          padding-right: 15px;
+          *zoom: 1; }
+          .container-fluid:after {
+            content: " ";
+            clear: both;
+            display: block;
+            overflow: hidden;
+            height: 0; } 
 
 
 

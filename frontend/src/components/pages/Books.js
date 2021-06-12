@@ -13,7 +13,7 @@ export default class Books extends React.Component {
             books: []
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+      
         this.handleChange = this.handleChange.bind(this);
         this.handleCategorySubmit = this.handleCategorySubmit.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -46,14 +46,6 @@ export default class Books extends React.Component {
         
     }
 
-    handleSubmit(event){
-        event.preventDefault();
-        const {search} = this.state;
-        const url = `http://localhost:3000/api/books/search/${search}`
-        axios.get(url).then(res => {
-            this.setState({books: res.data})
-        })
-    }
 /*
     componentDidMount() {
         axios.get('http://localhost:3000/api/books/')
@@ -73,21 +65,12 @@ export default class Books extends React.Component {
                     <div class="container">
                                 <div class="breadcrumbs">
                                     <a href="/">Home</a>
-                                    <span>Books</span>
+                                    <span>Breeds</span>
 						        </div>
 
-                                <h2 class="page-title">Search for any book OR  choose a category for random preview:</h2>
+                                <h2 class="page-title">Search for dog breeds</h2>
                                 <div class="row">
-
-                                    <div class="col-md-4">
-
-                                        <form class="search-form" onSubmit={this.handleSubmit}  >
-                                                <input type="text" value={this.state.search} onChange={this.handleChange}/>
-                                                <input type="submit" value="Search" />
-                                                    
-                                        </form>
-                                    </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-7">
         
                                         <form onSubmit={this.handleCategorySubmit}>
                                             <div class="filters">

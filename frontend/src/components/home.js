@@ -7,28 +7,47 @@ export default class Home extends React.Component {
         super(props);
         this.state = {
             books: [],
+            darkMode: 'light',
+            dogs: [],
         }
     }
 
+
+    /*
     componentDidMount() {
-        axios.get('http://localhost:3000/api/books/')
+        axios.get('api.thedogapi.com/v1/images/search?limit=9')
         .then(res => {
             this.setState({
                 books: res.data
             })
+            console.log(res)
+        })
+    }  */
+
+
+    componentDidMount() {
+        fetch("https://dog.ceo/api/breeds/image/random/10")
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({dogs: data.message})
         })
     }
+        
+
 
     render(){
         const {books} = this.state;
+    
+
 
         return(
+
 
         <div class="container">
             <main class="main-content">
 				<div class="container">
 					<div class="page">
-                        <h2 class="page-title">Maybe you will find this interesting:</h2>
+                        <h2 class="page-title">Here are some random cute dogs:</h2>
 						<div class="row">
 							<div class="col-md-9">
                             <BooksGrid books={books}/>
