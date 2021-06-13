@@ -2,7 +2,7 @@
   margin-bottom: 30px;
  }
 .page img {
-  border-radius: 48%;
+  border-radius: 5%;
   height: 200px;
   max-width: 100%; }
 .page .book-title {
@@ -15,15 +15,16 @@
     margin-bottom: 20px;
     border: 1px solid transparent; 
     display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    width: 200px;
+    width: auto;
+
 }
 
 .page-title{
   text-align: center;
   font-size: 30px;
   font-family: cursive;
+  margin-bottom: 70px;
 }
 
 .row {
@@ -53,6 +54,12 @@
     background-position: 100% center; }
 
 
+    .container2 {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
 
 
 
@@ -61,40 +68,6 @@
     border-radius: 5px;
     padding: 30px; }
   
-  
-    .container {
-      
-      padding-left: 15px;
-      padding-right: 15px;
-      *zoom: 1; }
-      .container:after {
-        content: " ";
-        clear: both;
-        display: block;
-        overflow: hidden;
-        height: 0; }
-      @media (min-width: 768px) {
-        .container {
-          width: 750px; } }
-      @media (min-width: 992px) {
-        .container {
-          width: 970px; } }
-      @media (min-width: 1200px) {
-        .container {
-          width: 1170px; } }
-    
-    .container-fluid {
-      margin-right: auto;
-      margin-left: auto;
-      padding-left: 15px;
-      padding-right: 15px;
-      *zoom: 1; }
-      .container-fluid:after {
-        content: " ";
-        clear: both;
-        display: block;
-        overflow: hidden;
-        height: 0; } 
 
 
 .box {

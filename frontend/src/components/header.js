@@ -40,7 +40,6 @@ export default function Header() {
 					</ul>
 				</div>
 
-				<div class="mobile-navigation"></div>
 			</ul>
 		  </div>
 		</header>

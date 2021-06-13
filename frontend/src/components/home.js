@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import BooksGrid from './BooksGrid';
+import DogList from './DogList'
 
 export default class Home extends React.Component { 
     constructor(props){
@@ -26,10 +27,11 @@ export default class Home extends React.Component {
 
 
     componentDidMount() {
-        fetch("https://dog.ceo/api/breeds/image/random/10")
+        fetch("https://dog.ceo/api/breeds/image/random/18")
         .then((res) => res.json())
         .then((data) => {
             this.setState({dogs: data.message})
+            console.log( data.message)
         })
     }
         
@@ -50,7 +52,7 @@ export default class Home extends React.Component {
                         <h2 class="page-title">Here are some random cute dogs:</h2>
 						<div class="row">
 							<div class="col-md-9">
-                            <BooksGrid books={books}/>
+                            <DogList dogs={this.state.dogs}/>
 							</div>					
 						</div> 
 					</div>
