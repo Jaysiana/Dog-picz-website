@@ -369,7 +369,7 @@ input:checked + .slider:before {
       @media screen and (max-width: 569px) {
       .main-navigation{
         margin-top:50px;
-        margin-right: 20%;
+        margin-right: 5%;
       
       }
 

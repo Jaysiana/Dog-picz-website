@@ -68,7 +68,7 @@ class Header extends Component{
 						</li>
 						
 						<li className="menu-item">
-							<Link to="/books">{languages[this.state.selectedLang]["link2"]}</Link>
+							<Link to="/breeds">{languages[this.state.selectedLang]["link2"]}</Link>
 						</li>
 					</ul>
 				</div>

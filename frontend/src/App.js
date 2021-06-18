@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Header from './components/Header';
 import Home from './components/pages/Home';
-import Books from './components/pages/Books';
+import Breeds from './components/pages/Breeds';
 import {Switch,Route} from "react-router-dom";
 import DarkMode from '../src/components/darkmode'
 
@@ -46,9 +46,9 @@ export default function App() {
             </div>
           </Route>
           
-          <Route path="/books">
+          <Route path="/breeds">
             <div className="App-box content">
-              <Books selectedLanguage={language}/>
+              <Breeds selectedLanguage={language}/>
             </div>
           </Route>   
 		  </Switch>
