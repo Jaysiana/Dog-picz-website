@@ -8,17 +8,11 @@ const DogList = (props) => {
         
     }
 
-
     )
     return (
-
         <div className= "container2">
             {dogsArray}
-
-
         </div>
-
-
     )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios';
-import BooksGrid from '../BooksGrid';
+import {languages} from '../../languages'
+import DogList from '../DogList'
+
 
 
 export default class Books extends React.Component {
@@ -10,13 +11,26 @@ export default class Books extends React.Component {
             search: '',
             category: '',
             year: '',
-            books: []
+            breed: [],
         }
-
-      
-        this.handleChange = this.handleChange.bind(this);
+  
         this.handleCategorySubmit = this.handleCategorySubmit.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    }
+
+    componentWillMount() {
+        fetch("https://dog.ceo/api/breeds/list/all")
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("breeds").innerHTML = `<select >
+
+            
+             ${Object.keys(data.message).map(function (breed){
+            return `<option>${breed}</option>`
+            }).join('')}
+            <select/> <input type="submit" value="OK" />`
+            document.getElementById("breeds").onchange = this.handleCategoryChange;
+        }) 
     }
 
     handleCategoryChange(event) {
@@ -26,80 +40,45 @@ export default class Books extends React.Component {
         })
     }
 
-    handleChange(event) {
-        event.preventDefault();
-        this.setState({
-            search: event.target.value
-        })
-    }
-
-
 
     handleCategorySubmit(event) {
         event.preventDefault();
-        const {category} = this.state;
-        console.log(category)
-        const url = `http://localhost:3000/api/books/subject/${category}`
-        axios.get(url).then(res => {
-            this.setState({books: res.data})  
+        const {category} = this.state
+        fetch(`https://dog.ceo/api/breed/${category}/images`)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({breed: data.message})
         })
-        
     }
 
-/*
-    componentDidMount() {
-        axios.get('http://localhost:3000/api/books/')
-        .then(res => {
-            this.setState({
-                books: res.data
-            })
-        })
-    }  */
 
     render() {
-        const {books} = this.state;
+        const {breed} = this.state;
 
         return (
-            <div class="container">
-                <main class="main-content"> 
-                    <div class="container">
-                                <div class="breadcrumbs">
-                                    <a href="/">Home</a>
-                                    <span>Breeds</span>
+                <main className="main-content"> 
+                    <div className="container">
+                                <div className="breadcrumbs">
+                                    <a href="/">{languages[this.props.selectedLanguage]["link1"]}</a>
+                                    <span>{languages[this.props.selectedLanguage]["link2"]}</span>
 						        </div>
 
-                                <h2 class="page-title">Search for dog breeds</h2>
-                                <div class="row">
-                                    <div class="col-md-7">
-        
-                                        <form onSubmit={this.handleCategorySubmit}>
-                                            <div class="filters">
-                                                <select name="#" id="categories" placeholder="Choose Category"   onChange={this.handleCategoryChange}>
-                                                    <option value="">Choose category</option>
-                                                    <option value="Action">Action</option>
-                                                    <option value="Computers">Computers</option>
-                                                    <option value="Drama">Drama</option>
-                                                    <option value="Fantasy">Fantasy</option>
-                                                    <option value="Horror">Horror</option>
-                                                    <option value="Adventure">Adventure</option>
-                                                </select>
-
-                                                <input type="submit" value="Search" />
-                                            
+                                <h2 className="page-title" >{languages[this.props.selectedLanguage]["h22"]}</h2>
+                                
+                                        <form onSubmit={this.handleCategorySubmit} >
+                                            <div class="filters" id="breeds">
                                             </div>
                                         </form>
+
+                                <div className="page">
+                                <div className="row">
+                                    <div className="col-md-9">
+                                        {breed.length > 0 && <DogList dogs={this.state.breed} />}
                                     </div>
                                 </div>
-
-                                <div class="wrapper">
-                                    {
-                                        books.length > 0 && 
-                                        <BooksGrid books={books} />
-                                    }
-                                </div>
+                            </div>
                         </div> 
                 </main>
-            </div>
         )
     }
 }
