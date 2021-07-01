@@ -1,6 +1,2 @@
-# Books recommendation and search website
+This is dog pictures search  react project for web development course of Narva Colledge of Universtity of Tartu
 
-This repository will be used by our team for development of books
-search and recommendation system.
-
-## To be continue...
