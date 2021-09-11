@@ -4,5 +4,5 @@ HOW TO RUN:
 2) go to the /frontend folder in the terminal and run command "npm start"
 (maybe there will be needed to install npm modules) 
 
-You do not have to manually type localhost and port.Webpage (localhost:3001) should open automatically, maybe with a little delay.
+3) You do not have to manually type localhost and port.Webpage (localhost:3001) should open automatically, maybe with a little delay.
  
